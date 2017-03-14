@@ -13,6 +13,8 @@
 
                 <li class="active"><a href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}<span class="sr-only">(current)</span></a></li>
                 <li ><a href="{{ url('/lineamuestras') }}">Muestras de linea</a></li>
+                <li ><a href="{{ url('/muestrascamion') }}">Muestras camión</a></li>
+                <li ><a href="{{ url('/gasconsumo') }}">Consumos de gas</a></li>
 
 
 

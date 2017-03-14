@@ -7,7 +7,8 @@ use proyectoPrueba\LineaMuestra;
 class LineaMuestrasController extends Controller
 {
     public function index(){
-    	$muestras = LineaMuestra::all()->reverse();
+    	//$muestras = LineaMuestra::all()->reverse();
+        $muestras=Lineamuestra::latest()->Paginate(10);
        		//dd($muestras);
 
 		return view('linea_muestras.index',['muestras'=>$muestras]);
