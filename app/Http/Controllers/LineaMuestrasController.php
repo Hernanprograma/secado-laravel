@@ -1,6 +1,6 @@
 <?php
 namespace proyectoPrueba\Http\Controllers;
-
+use proyectoPrueba\Http\Requests\ValidaFormLineaMuestrasRequest;
 use Illuminate\Http\Request;
 use proyectoPrueba\LineaMuestra;
 
@@ -25,7 +25,7 @@ class LineaMuestrasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidaFormLineaMuestrasRequest $request)
     {
 
         $muestra=new LineaMuestra;
@@ -79,7 +79,7 @@ class LineaMuestrasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidaFormLineaMuestrasRequest $request, $id)
     {
 
     	$muestra=LineaMuestra::findOrFail($id);

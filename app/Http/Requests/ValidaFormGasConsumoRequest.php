@@ -26,15 +26,15 @@ class ValidaFormGasConsumoRequest extends FormRequest
        
         return [
             
-            'receptora_lectura'=>'required',
-            'receptora_vb'=>'required',
-            'receptora_vm'=>'required',
-            'caldera'=>'required',
-            'caldera_vbt'=>'required',
-            'caldera_vmt'=>'required',
-            'coogeneracion_lectura'=>'required',
-            'coogeneracion_vbt'=>'required',
-            'coogeneracion_vmt'=>'required'
+            'receptora_lectura'=>'required | numeric',
+            'receptora_vb'=>'required | numeric',
+            'receptora_vm'=>'required | numeric',
+            'caldera'=>'required | numeric',
+            'caldera_vbt'=>'required | numeric',
+            'caldera_vmt'=>'required | numeric',
+            'coogeneracion_lectura'=>'required | numeric',
+            'coogeneracion_vbt'=>'required | numeric',
+            'coogeneracion_vmt'=>'required | numeric'
             ];
     }
 }
