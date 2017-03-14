@@ -4,13 +4,11 @@ namespace proyectoPrueba\Http\Controllers;
 use Illuminate\Http\Request;
 use proyectoPrueba\LineaMuestra;
 
-
 class LineaMuestrasController extends Controller
 {
-	public function index()
-	{
-		$muestras = LineaMuestra::all()->reverse(); 
-		//dd($muestras);
+    public function index(){
+    	$muestras = LineaMuestra::all()->reverse();
+       		//dd($muestras);
 
 		return view('linea_muestras.index',['muestras'=>$muestras]);
 
@@ -29,14 +27,14 @@ class LineaMuestrasController extends Controller
     public function store(Request $request)
     {
 
-    	$muestra=new LineaMuestra;
-    	$muestra->linea =$request->linea;
-    	$muestra->sequedadentrada= $request->sequedadentrada;
-    	$muestra->sequedadsalida=$request->sequedadsalida;
-    	$muestra->tt1=$request->tt1;
-    	$muestra->tt2=$request->tt2;
-    	$muestra->tt3=$request->tt3;
-    	$muestra->tt4=$request->tt4;
+        $muestra=new LineaMuestra;
+        $muestra->linea =$request->linea;
+        $muestra->sequedadentrada= $request->sequedadentrada;
+        $muestra->sequedadsalida=$request->sequedadsalida;
+        $muestra->tt1=$request->tt1;
+        $muestra->tt2=$request->tt2;
+        $muestra->tt3=$request->tt3;
+        $muestra->tt4=$request->tt4;
     	$muestra->intensidadtambor=$request->intensidadtambor;
     	$muestra->herziosbomba=$request->herziosbomba;
     	$muestra->vueltasbomba=$request->vueltasbomba;
@@ -68,8 +66,9 @@ class LineaMuestrasController extends Controller
      */
     public function edit($id)
     {
-    	$muestra=LineaMuestra::findOrFail($id);
-    	return view($this->path.'.edit', compact('muestra'));
+         $muestra=LineaMuestra::findOrFail($id);
+         
+         return view('linea_muestras.edit', compact('muestra'));
     }
 
     /**

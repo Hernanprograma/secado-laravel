@@ -55,6 +55,10 @@
                                 <td>{{ $muestra->vueltasbomba }}</td>
                                 <td>{{ $muestra->nivelsilo }}</td>
 
+                                <td>
+                        <a href="{{route('lineamuestras.edit',$muestra->id)}}" class="btn btn-info">Editar</a>
+                    </td>
+
                             </tr>
                             @endforeach
                         </tbody>
