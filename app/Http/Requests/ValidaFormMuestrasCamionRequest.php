@@ -24,10 +24,19 @@ class ValidaFormMuestrasCamionRequest extends FormRequest
     public function rules()
     {
         return [
-            'centrifuga'=>'required|in:a,A,b,B,c,C',
-            'entrada' => 'required',
-            'salida'=>'between:0,2.0'
+        'centrifuga'=>'required|in:a,A,b,B,c,C',
+        'entrada' => 'numeric',
+        'salida'=>'numeric',
+        'consigna'=>'numeric',
+        'va'=>'numeric',
+        'vr'=>'numeric',
+        'par'=>'numeric',
+        't_entrada'=>'numeric',
+        't_salida'=>'numeric',
+        'vibracion'=>'numeric',
+        'caudal_ent'=>'numeric',
+        'marcapoli'=>'numeric',
+        'caudal_poli'=>'numeric'
         ];
-        
     }
 }
