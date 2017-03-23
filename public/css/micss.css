@@ -97,51 +97,51 @@ body {
 
 /* 
     Only Needed in Multi-Coloured Variation 
-                                               */
+    */
 
-.social-fb:hover {
-    color: #3B5998;
-}
-.social-tw:hover {
-    color: #4099FF;
-}
-.social-gp:hover {
-    color: #d34836;
-}
-.social-em:hover {
-    color: #f39c12;
-}
-.nomargin {
-    margin: 0px;
-    padding: 0px;
-}
-.footer-bottom {
-    background-color: #15224f;
-    min-height: 30px;
-    width: 100%;
-}
-.copyright {
-    color: #fff;
-    line-height: 30px;
-    min-height: 30px;
-    padding: 7px 0;
-}
-.design {
-    color: #fff;
-    line-height: 30px;
-    min-height: 30px;
-    padding: 7px 0;
-    text-align: right;
-}
-.design a {
-    color: #fff;
-}
+    .social-fb:hover {
+        color: #3B5998;
+    }
+    .social-tw:hover {
+        color: #4099FF;
+    }
+    .social-gp:hover {
+        color: #d34836;
+    }
+    .social-em:hover {
+        color: #f39c12;
+    }
+    .nomargin {
+        margin: 0px;
+        padding: 0px;
+    }
+    .footer-bottom {
+        background-color: #15224f;
+        min-height: 30px;
+        width: 100%;
+    }
+    .copyright {
+        color: #fff;
+        line-height: 30px;
+        min-height: 30px;
+        padding: 7px 0;
+    }
+    .design {
+        color: #fff;
+        line-height: 30px;
+        min-height: 30px;
+        padding: 7px 0;
+        text-align: right;
+    }
+    .design a {
+        color: #fff;
+    }
 
 /************************************************************
 *************************Tables******************************
 *************************************************************/
 
-.panel-table .panel-body {
+/*.panel-table .panel-body {
     padding: 0;
 }
 .panel-table .panel-body .table-bordered {
@@ -168,4 +168,33 @@ body {
 }
 .panel-table .panel-footer .pagination {
     margin: 0;
+}
+*/
+table{
+    font-size:small;
+    color:green;
+    
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 3 2 0 2;
+
+}
+
+
+
+/* Por debajo de 700px */
+@media (max-width: 700px){
+    table{
+        font-size:x-small;
+        color:blue;
+    }
+
+}
+
+/* Por debajo de 400px */
+@media (max-width: 400px){
+    table{
+        font-size:xx-small !important;
+        color:#ff003d;
+    }
 }

@@ -53,12 +53,13 @@
 
 					<td>
 						<a href="{{route('muestrascamion.edit',$row->id)}}" class="btn btn-info">Editar</a>
+
 					</td>
-					<td>
-						<form action="{{route('muestrascamion.destroy',$row->id)}}" method="post">
+					<td  >
+						<form action="{{route('muestrascamion.destroy',$row->id)}}" method="post" class="form-horizontal" >
 							<input name="_method" type="hidden" value="DELETE">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
-							<button type="submit" class="btn btn-danger">Eliminar</button>
+							<button type="submit" class="btn btn-danger ">Eliminar</button>
 						</form>
 					</td>
 				</tr>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<div class="container-fluid">
+<div class="container-fluid ">
 	<h1>Consumos de gas</h1>
 	<h4> <a href="{{ route('gasconsumo.create') }}">Introducir consumos de gas</a></h4>
 	
@@ -47,7 +47,7 @@
 
 
 					<td>
-						<a href="{{route('gasconsumo.edit',$row->id)}}" class="btn btn-info">Editar</a>
+						<button href="{{route('gasconsumo.edit',$row->id)}}" class="btn btn-info">Editar</button>
 					</td>
 					<td>
 						<form action="{{route('gasconsumo.destroy',$row->id)}}" method="post">

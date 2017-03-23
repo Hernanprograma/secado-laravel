@@ -1,8 +1,7 @@
 
 <!--footer-->
 <footer class="footer1">
-    <div class="container">
-
+    
         <div class="row">
             <!-- row -->
 
@@ -165,4 +164,4 @@
 
     </div>
 
-</div>
+

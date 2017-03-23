@@ -5,6 +5,7 @@ namespace proyectoPrueba\Http\Controllers;
 use proyectoPrueba\Http\Requests\ValidaFormGasConsumoRequest;
 use Illuminate\Http\Request;
 use proyectoPrueba\GasConsumo;
+use proyectoPrueba\User;
 
 class GasConsumoController extends Controller
 {
@@ -16,7 +17,10 @@ class GasConsumoController extends Controller
    
     public function index()
     {
+        $user= User::all();
         $data = GasConsumo::all()->reverse();
+       
+
                       
         return view('gas_consumo.index', compact('data'));
     }

@@ -31,4 +31,10 @@ class User extends Authenticatable {
         return $query->where('id', '1')->first();
     }
 
+    // Relación
+        public function gasConsumos()
+        {
+            return $this->hasMany('proyectoPrueba\Gasconsumo');
+        }
+
 }
