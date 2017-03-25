@@ -14,14 +14,12 @@ class GasConsumoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
     public function index()
     {
-        $user= User::all();
-        $data = GasConsumo::all()->reverse();
-       
+      
 
-                      
+        $data = GasConsumo::all()->reverse();        
         return view('gas_consumo.index', compact('data'));
     }
 
@@ -42,8 +40,12 @@ class GasConsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(ValidaFormGasConsumoRequest $request)
+
     {
+
         $consumo=new GasConsumo;
+        //dd($request->user());
+        $consumo->user_id=$request->user()->id;
         $consumo->receptora_lectura =$request->receptora_lectura;
         $consumo->receptora_vb= $request->receptora_vb;
         $consumo->receptora_vm=$request->receptora_vm;
@@ -53,7 +55,7 @@ class GasConsumoController extends Controller
         $consumo->coogeneracion_lectura=$request->coogeneracion_lectura;
         $consumo->coogeneracion_vbt=$request->coogeneracion_vbt;
         $consumo->coogeneracion_vmt=$request->coogeneracion_vmt;
-       
+
         $consumo->save();
         \Session::flash('msg', 'Cambios guardados' );
         return redirect()->route('gasconsumo.index');
@@ -93,6 +95,7 @@ class GasConsumoController extends Controller
     public function update(ValidaFormGasConsumoRequest $request, $id)
     {
         $consumo=GasConsumo::findOrFail($id);
+        $consumo->user_id=$request->user()->id;
         $consumo->receptora_lectura =$request->receptora_lectura;
         $consumo->receptora_vb= $request->receptora_vb;
         $consumo->receptora_vm=$request->receptora_vm;
@@ -102,7 +105,7 @@ class GasConsumoController extends Controller
         $consumo->coogeneracion_lectura=$request->coogeneracion_lectura;
         $consumo->coogeneracion_vbt=$request->coogeneracion_vbt;
         $consumo->coogeneracion_vmt=$request->coogeneracion_vmt;
-       
+
         $consumo->save();
         \Session::flash('msg', 'Cambios guardados' );
         return redirect()->route('gasconsumo.index');
@@ -118,7 +121,7 @@ class GasConsumoController extends Controller
     {
         $consumo=GasConsumo::findOrFail($id);
         $consumo->delete();
-         \Session::flash('deleted', 'El registro ha sido eliminado');
+        \Session::flash('deleted', 'El registro ha sido eliminado');
         return redirect()->route('gasconsumo.index');
     }
 }

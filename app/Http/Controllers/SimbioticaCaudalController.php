@@ -3,6 +3,7 @@
 namespace proyectoPrueba\Http\Controllers;
 
 use Illuminate\Http\Request;
+use proyectoPrueba\SimbioticaCaudales;
 
 class SimbioticaCaudalController extends Controller
 {
@@ -13,7 +14,10 @@ class SimbioticaCaudalController extends Controller
      */
     public function index()
     {
-        //
+        $data=SimbioticaCaudales::all()->reverse();
+        //dd($data);
+        return view('simbiotica_caudales.index',compact('data'));
+
     }
 
     /**
@@ -23,7 +27,7 @@ class SimbioticaCaudalController extends Controller
      */
     public function create()
     {
-        //
+        return view('simbiotica_caudales.create');
     }
 
     /**
@@ -34,7 +38,17 @@ class SimbioticaCaudalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $simbiotica=new  SimbioticaCaudales;
+
+
+        $simbiotica->caudal=$request->caudal;
+        $simbiotica->totalizado=$request->totalizado;
+        $simbiotica->incidencias=$request->incidencias;
+
+        $simbiotica->save();
+        \Session::flash('msg', 'Cambios guardados' );
+        return redirect()->route('simbiotica_caudales.index');
     }
 
     /**
@@ -56,7 +70,9 @@ class SimbioticaCaudalController extends Controller
      */
     public function edit($id)
     {
-        //
+     $simbiotica=SimbioticaCaudales::findOrFail($id);
+        //return view('gasconsumo.edit', compact('consumo'));
+     return view('simbiotica_caudales.edit', compact('simbiotica'));
     }
 
     /**
@@ -68,8 +84,17 @@ class SimbioticaCaudalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $simbiotica=SimbioticaCaudales::findOrFail($id);
+
+        $simbiotica->caudal=$request->caudal;
+        $simbiotica->totalizado=$request->totalizado;
+        $simbiotica->incidencias=$request->incidencias;
+
+        $simbiotica->save();
+        \Session::flash('msg', 'Cambios guardados' );
+        return redirect()->route('simbiotica_caudales.index');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -79,6 +104,10 @@ class SimbioticaCaudalController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $simbiotica=SimbioticaCaudales::findOrFail($id);
+        $simbiotica->delete();
+        \Session::flash('deleted', 'El registro ha sido eliminado');
+        return redirect()->route('simbiotica_caudales.index');
     }
+    
 }

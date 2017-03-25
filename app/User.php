@@ -32,9 +32,14 @@ class User extends Authenticatable {
     }
 
     // Relación
-        public function gasConsumos()
+    public function gasconsumo()
         {
             return $this->hasMany('proyectoPrueba\Gasconsumo');
+        }
+         // Relación
+        public function simbiotica()
+        {
+            return $this->hasMany('proyectoPrueba\SimbioticaCaudales');
         }
 
 }

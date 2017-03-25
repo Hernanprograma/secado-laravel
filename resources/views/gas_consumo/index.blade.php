@@ -10,7 +10,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-
+				<td>Operario</td>
 					<td>Fecha</td>
 					<td>Hora</td>
 					<td>Lectura(m³)</td>
@@ -28,7 +28,7 @@
 			</thead>
 			<tbody>
 				@foreach($data as $row)
-				<tr>
+				<tr><td>{{$row->user->name}}</td>
 					<td>{{$row->created_at->format('d/m/Y')}}</td>
 					<td>{{$row->created_at->format('H:i:s')}}</td>
 					<td>{{$row->receptora_lectura}}</td>
@@ -47,7 +47,7 @@
 
 
 					<td>
-						<button href="{{route('gasconsumo.edit',$row->id)}}" class="btn btn-info">Editar</button>
+						<a href="{{route('gasconsumo.edit',$row->id)}}" class="btn btn-info">Editar</a>
 					</td>
 					<td>
 						<form action="{{route('gasconsumo.destroy',$row->id)}}" method="post">

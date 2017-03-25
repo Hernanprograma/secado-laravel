@@ -4,12 +4,14 @@ namespace proyectoPrueba;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GasConsumo extends Model
+class SimbioticaCaudales extends Model
 {
-	protected $table='gas_consumos';
+    protected $table = 'simbiotica_caudales';
 
-	// Relación
-    public function user() {
+// Relación
+    public function user()
+    {
         return $this->belongsTo('proyectoPrueba\User');
     }
 }
+

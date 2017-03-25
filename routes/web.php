@@ -29,6 +29,7 @@ Route::get('pruebasLineaMuestra', function () {
 Route::resource('lineamuestras', 'LineaMuestrasController');
 Route::resource('muestrascamion', 'MuestrasCamionController');
 Route::resource('gasconsumo', 'GasConsumoController');
+Route::resource('simbiotica', 'SimbioticaCaudalController');
 
 Auth::routes();
 
