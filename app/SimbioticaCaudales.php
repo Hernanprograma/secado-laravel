@@ -8,6 +8,8 @@ class SimbioticaCaudales extends Model
 {
     protected $table = 'simbiotica_caudales';
 
+    protected $dates = ['hora'];
+
 // Relación
     public function user()
     {

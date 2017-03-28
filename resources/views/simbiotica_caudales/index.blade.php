@@ -24,11 +24,11 @@
 			<tbody>
 				@foreach($data as $row)
 				<tr><td>{{$row->user->name}}</td>
-					<td>{{$row->created_at->format('d/m/Y')}}</td>
-					<td>{{$row->created_at->format('H:i:s')}}</td>
+					<td>{{$row->hora->format('d-m-Y')}}</td>
+					<td>{{$row->hora->format('H:i')}}</td>
 					<td>{{$row->caudal}}</td>
 					<td>{{$row->totalizado}}</td>
-					<td>{{$row->incidencias}}</td>
+					<td><textarea readonly>{{$row->incidencias}}</textarea></td>
 					
 					<td>
 						<a href="{{route('simbiotica.edit',$row->id)}}" class="btn btn-info">Editar</a>

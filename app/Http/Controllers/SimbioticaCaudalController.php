@@ -37,18 +37,27 @@ class SimbioticaCaudalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
+        //recojo los datos de la fecha del request separados para luego enviarlos a a la bd
+        $auxFecha=$request->fecha;
+        $auxHora=$request->hora;
+
+        $hora= $auxFecha." ".$auxHora;
+        
+        //$timestamp = \Carbon::createFromTimestamp($auxFecha . $hora);
 
         $simbiotica=new  SimbioticaCaudales;
 
-
+        $simbiotica->user_id=$request->user()->id;
+        $simbiotica->hora=strtotime($hora);
         $simbiotica->caudal=$request->caudal;
         $simbiotica->totalizado=$request->totalizado;
         $simbiotica->incidencias=$request->incidencias;
 
         $simbiotica->save();
         \Session::flash('msg', 'Cambios guardados' );
-        return redirect()->route('simbiotica_caudales.index');
+        return redirect()->route('simbiotica.index');
     }
 
     /**
@@ -92,7 +101,7 @@ class SimbioticaCaudalController extends Controller
 
         $simbiotica->save();
         \Session::flash('msg', 'Cambios guardados' );
-        return redirect()->route('simbiotica_caudales.index');
+        return redirect()->route('simbiotica.index');
     }
 
 
@@ -107,7 +116,7 @@ class SimbioticaCaudalController extends Controller
        $simbiotica=SimbioticaCaudales::findOrFail($id);
         $simbiotica->delete();
         \Session::flash('deleted', 'El registro ha sido eliminado');
-        return redirect()->route('simbiotica_caudales.index');
+        return redirect()->route('simbiotica.index');
     }
     
 }
