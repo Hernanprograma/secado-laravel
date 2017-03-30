@@ -10,53 +10,55 @@
 
   <input type="hidden" name="_token" value="{{csrf_token()}}">
 
-  <div class="form-group">
-    {!!Form::label('linea', 'Linea');!!}
-    {!! Form::text('linea',null, ['placeholder' =>'A o B','class' => 'form-control'],"");!!}
+  <div class="form-group col-md-4">
+    {!!Form::label('linea', 'Linea de secado térmico');!!}
+    {!! Form::select('linea',array('A'=>'Linea A','B'=>'Linea B'),null,['class' => 'form-control']); !!}
   </div>
   
- 
-  <div class="form-group">
+  
+  <div class="form-group col-md-4">
     {!!Form::label('sequedadentrada', 'Sequedad entrada');!!}
-    {!! Form::text('sequedadentrada',null, ['placeholder' =>'Entre 16 y 25','class' => 'form-control'],"");!!}
+    {!! Form::number('sequedadentrada',"null", ['step'=>'0.01','required' => 'required','placeholder' =>'Entre 16 y 25','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-4">
     {!!Form::label('sequedadsalida', 'Sequedad Salida');!!} 
-    {!! Form::text('sequedadsalida',null, ['placeholder' =>'Debe estar entre 80 y 95','class' => 'form-control'],"");!!}
+    {!! Form::number('sequedadsalida',null, ['step'=>'0.01','required' => 'required','placeholder' =>'Debe estar entre 80 y 95','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('tt1', 'TT1');!!} 
-    {!! Form::text('tt1',null, ['placeholder' =>'Temp salida del tambor aire','class' => 'form-control'],"");!!}
+    {!! Form::number('tt1',null, ['step'=>'0.01','placeholder' =>'Temp salida del tambor aire','class' => 'form-control']);!!}
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('tt2', 'TT2');!!}
-    {!! Form::text('tt2',null, ['placeholder' =>'Temp aire condensador <50°','class' => 'form-control'],"");!!}
+    {!! Form::number('tt2',null, ['step'=>'0.01','placeholder' =>'Temp aire condensador <50°','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('tt3', 'TT3');!!} 
-    {!! Form::text('tt3',null, ['placeholder' =>'Temp aire tambor:±240°','class' => 'form-control'],"");!!}
+    {!! Form::number('tt3',null, ['step'=>'0.01','placeholder' =>'Temp aire tambor:±240°','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('tt4', 'TT4');!!} 
-    {!! Form::text('tt4',null, ['placeholder' =>'Temp aceite salida tambor: ±278°','class' => 'form-control'],"");!!}
+    {!! Form::number('tt4',null, ['step'=>'0.01','placeholder' =>'Temp aceite salida tambor: ±278°','class' => 'form-control']);!!}
   </div>
-    <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('intensidadtambor', 'Intensidad tambor');!!} 
-    {!! Form::text('intensidadtambor',null, ['placeholder' =>'Intensidad','class' => 'form-control'],"");!!}
+    {!! Form::number('intensidadtambor',null, ['step'=>'0.01','placeholder' =>'Intensidad','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('herziosbomba', 'Frecuencia bomba');!!} 
-    {!! Form::text('herziosbomba',null, ['placeholder' =>'En Hz','class' => 'form-control'],"");!!}
+    {!! Form::number('herziosbomba',null, ['step'=>'0.01','placeholder' =>'En Hz','class' => 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('vueltasbomba', 'Vueltas bomba');!!} 
-    {!! Form::text('vueltasbomba',null, ['placeholder' =>'Número de vueltas','class'=> 'form-control'],"");!!}
+    {!! Form::number('vueltasbomba',null, ['step'=>'0.01','placeholder' =>'Número de vueltas','class'=> 'form-control']);!!}
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-3">
     {!!Form::label('nivelsilo', 'Niv silo');!!} 
-    {!! Form::text('nivelsilo',null, ['placeholder' =>'Nivel del silo %','class'=> 'form-control'],"");!!}
+    {!! Form::number('nivelsilo',null, ['step'=>'0.01','placeholder' =>'Nivel del silo %','class'=> 'form-control']);!!}
   </div>
+
+
 
   
 

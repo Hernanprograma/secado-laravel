@@ -24,9 +24,11 @@ class ValidaSimbioticaCaudalesRequest extends FormRequest
     public function rules()
     {
         return [
-        'operario'=>'required',
-        'caudal'=>'numeric',
-        'totalizado'=>'numeric';
+       
+        'caudal'=>'required|numeric|min:0',
+        'hora'=>'required|required',
+        'fecha'=>'required',
+        'totalizado'=>'numeric|required'
         
         ];
     }

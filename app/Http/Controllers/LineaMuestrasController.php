@@ -11,13 +11,13 @@ class LineaMuestrasController extends Controller
         $muestras=Lineamuestra::latest()->Paginate(10);
        		//dd($muestras);
 
-		return view('linea_muestras.index',['muestras'=>$muestras]);
+        return view('linea_muestras.index',['muestras'=>$muestras]);
 
-	}
-	public function create()
-	{
-		return view('linea_muestras.create');
-	}
+    }
+    public function create()
+    {
+      return view('linea_muestras.create');
+  }
 
     /**
      * Store a newly created resource in storage.
@@ -36,16 +36,16 @@ class LineaMuestrasController extends Controller
         $muestra->tt2=$request->tt2;
         $muestra->tt3=$request->tt3;
         $muestra->tt4=$request->tt4;
-    	$muestra->intensidadtambor=$request->intensidadtambor;
-    	$muestra->herziosbomba=$request->herziosbomba;
-    	$muestra->vueltasbomba=$request->vueltasbomba;
-    	$muestra->nivelsilo=$request->nivelsilo;
-    	
+        $muestra->intensidadtambor=$request->intensidadtambor;
+        $muestra->herziosbomba=$request->herziosbomba;
+        $muestra->vueltasbomba=$request->vueltasbomba;
+        $muestra->nivelsilo=$request->nivelsilo;
+        
 
 
-    	$muestra->save();
-    	\Session::flash('msg', 'Cambios guardados' );
-    	return redirect()->route('lineamuestras.index');
+        $muestra->save();
+        \Session::flash('msg', 'Cambios guardados' );
+        return redirect()->route('lineamuestras.index');
     }
 
     /**
@@ -67,10 +67,9 @@ class LineaMuestrasController extends Controller
      */
     public function edit($id)
     {
-         $muestra=LineaMuestra::findOrFail($id);
-         
-         return view('linea_muestras.edit', compact('muestra'));
-    }
+       $muestra=LineaMuestra::findOrFail($id);
+       return view('linea_muestras.edit', compact('muestra'));
+   }
 
     /**
      * Update the specified resource in storage.

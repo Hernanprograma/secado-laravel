@@ -15,15 +15,15 @@
     <h2>Receptora de gas</h2>
     <div class="form-group">
       {!!Form::label('receptora_lectura', 'Lectura');!!}
-      {!! Form::text('receptora_lectura',null, ['placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
+      {!! Form::number('receptora_lectura',null, ['step'=>'0.01','placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('receptora_vb', 'Vb(Nm³)');!!} 
-      {!! Form::text('receptora_vb',null, ['placeholder' =>'Vb(Nm³)','class' => 'form-control'],"");!!}
+      {!! Form::number('receptora_vb',null, ['step'=>'0.01','placeholder' =>'Vb(Nm³)','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('receptora_vm', 'Vm(m³)');!!} 
-      {!! Form::text('receptora_vm',null, ['placeholder' =>'Vm(m³)','class' => 'form-control'],"");!!}
+      {!! Form::number('receptora_vm',null, ['step'=>'0.01','placeholder' =>'Vm(m³)','class' => 'form-control'],"");!!}
     </div>
   </div>
   <!--Calderas-->
@@ -31,15 +31,15 @@
     <h2>Calderas</h2>
     <div class="form-group">
       {!!Form::label('caldera', 'Lectura');!!}
-      {!! Form::text('caldera',null, ['placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
+      {!! Form::number('caldera',null, ['step'=>'0.01','placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('caldera_vbt', 'Vb(Nm³)');!!} 
-      {!! Form::text('caldera_vbt',null, ['placeholder' =>'Vbt(Nm³)','class' => 'form-control'],"");!!}
+      {!! Form::number('caldera_vbt',null, ['step'=>'0.01','placeholder' =>'Vbt(Nm³)','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('caldera_vmt', 'Vm(m³)');!!} 
-      {!! Form::text('caldera_vmt',null, ['placeholder' =>'Vmt(m³)','class' => 'form-control'],"");!!}
+      {!! Form::number('caldera_vmt',null, ['step'=>'0.01','placeholder' =>'Vmt(m³)','class' => 'form-control'],"");!!}
     </div>
   </div>
 
@@ -49,15 +49,15 @@
     <h2>Coogeneración</h2>
     <div class="form-group">
       {!!Form::label('coogeneracion_lectura', 'Lectura');!!} 
-      {!! Form::text('coogeneracion_lectura',null, ['placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
+      {!! Form::number('coogeneracion_lectura',null, ['step'=>'0.01','placeholder' =>'lectura en m³','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('coogeneracion_vbt', 'Vb(Nm³)');!!} 
-      {!! Form::text('coogeneracion_vbt',null, ['placeholder' =>'Vbt(Nm³)','class' => 'form-control'],"");!!}
+      {!! Form::number('coogeneracion_vbt',null, ['step'=>'0.01','placeholder' =>'Vbt(Nm³)','class' => 'form-control'],"");!!}
     </div>
     <div class="form-group">
       {!!Form::label('coogeneracion_vmt', 'Vm(m³)');!!} 
-      {!! Form::text('coogeneracion_vmt',null, ['placeholder' =>'Vmt(m³)','class'=> 'form-control'],"");!!}
+      {!! Form::number('coogeneracion_vmt',null, ['step'=>'0.01','placeholder' =>'Vmt(m³)','class'=> 'form-control'],"");!!}
     </div>
   </div>
   

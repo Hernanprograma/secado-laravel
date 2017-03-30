@@ -198,3 +198,19 @@ table{
         color:#ff003d;
     }
 }
+
+.btn-group {
+  white-space: nowrap;
+  .btn {
+    float: none;
+    display: inline-block;
+  }
+}
+
+.textareapers{
+    border: none;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+       -moz-box-sizing: border-box; /* FF1+ */
+            box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+}

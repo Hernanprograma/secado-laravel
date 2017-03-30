@@ -7,6 +7,7 @@
 	@include('partials.alerts.deleted')
 	<div class="table-responsive">
 		@if($data)
+		
 		<table class="table">
 			<thead>
 				<tr>
@@ -16,9 +17,6 @@
 					<td>Caudal(m³)</td>
 					<td>Totalizado</td>
 					<td>incidencias</td>
-					
-
-
 				</tr>
 			</thead>
 			<tbody>
@@ -28,16 +26,17 @@
 					<td>{{$row->hora->format('H:i')}}</td>
 					<td>{{$row->caudal}}</td>
 					<td>{{$row->totalizado}}</td>
-					<td><textarea readonly>{{$row->incidencias}}</textarea></td>
+					<td><textarea class="textareapers" readonly rows="2">{{$row->incidencias}}</textarea></td>
 					
-					<td>
-						<a href="{{route('simbiotica.edit',$row->id)}}" class="btn btn-info">Editar</a>
-					</td>
-					<td>
-						<form action="{{route('simbiotica.destroy',$row->id)}}" method="post">
-							<input name="_method" type="hidden" value="DELETE">
-							<input type="hidden" name="_token" value="{{csrf_token()}}">
-							<button type="submit" class="btn btn-danger">Eliminar</button>
+					<td >
+						<div class="btn-group">
+							<button href="{{route('simbiotica.edit',$row->id)}}" class="btn btn-info btn-xs">Editar</button>
+
+							<form action="{{route('simbiotica.destroy',$row->id)}}" method="post">
+								<input name="_method" type="hidden" value="DELETE">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<button type="submit" class="btn btn-danger btn-xs">Eliminar</button>
+							</div>
 						</form>
 					</td>
 				</tr>

@@ -1,7 +1,7 @@
 <?php
 
 namespace proyectoPrueba\Http\Controllers;
-
+use proyectoPrueba\Http\Requests\ValidaSimbioticaCaudalesRequest;
 use Illuminate\Http\Request;
 use proyectoPrueba\SimbioticaCaudales;
 
@@ -36,7 +36,7 @@ class SimbioticaCaudalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store (ValidaSimbioticaCaudalesRequest $request)
 
     {
         //recojo los datos de la fecha del request separados para luego enviarlos a a la bd
@@ -79,10 +79,10 @@ class SimbioticaCaudalController extends Controller
      */
     public function edit($id)
     {
-     $simbiotica=SimbioticaCaudales::findOrFail($id);
+       $simbiotica=SimbioticaCaudales::findOrFail($id);
         //return view('gasconsumo.edit', compact('consumo'));
-     return view('simbiotica_caudales.edit', compact('simbiotica'));
-    }
+       return view('simbiotica_caudales.edit', compact('simbiotica'));
+   }
 
     /**
      * Update the specified resource in storage.
@@ -113,10 +113,10 @@ class SimbioticaCaudalController extends Controller
      */
     public function destroy($id)
     {
-       $simbiotica=SimbioticaCaudales::findOrFail($id);
-        $simbiotica->delete();
-        \Session::flash('deleted', 'El registro ha sido eliminado');
-        return redirect()->route('simbiotica.index');
-    }
-    
+     $simbiotica=SimbioticaCaudales::findOrFail($id);
+     $simbiotica->delete();
+     \Session::flash('deleted', 'El registro ha sido eliminado');
+     return redirect()->route('simbiotica.index');
+ }
+
 }
