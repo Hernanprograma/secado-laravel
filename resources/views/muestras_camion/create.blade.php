@@ -3,7 +3,8 @@
   <!--si el formulario contiene errores de validación-->
 
   <h1>Insertar Muestra</h1>
-  <h4><a href="{{route('muestrascamion.index') }}">Lista de muestras</a></h4>
+  
+  <h4>{!!link_to_route('muestrascamion.index',$title='Lista de muestras');!!}</h4>
   <hr>
   <!--Muestra los errores-->
   @include('partials.alerts.errors')

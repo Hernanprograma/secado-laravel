@@ -81,7 +81,7 @@ class SimbioticaCaudalController extends Controller
     {
        $simbiotica=SimbioticaCaudales::findOrFail($id);
         //return view('gasconsumo.edit', compact('consumo'));
-       return view('simbiotica_caudales.edit', compact('simbiotica'));
+       return view('simbiotica.edit', compact('simbiotica'));
    }
 
     /**
