@@ -10,91 +10,90 @@
   @include('partials.alerts.errors')
 
 
-  <form method="post" action="/muestrascamion">
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-    <table class="table">
-      <tr>
-        <td>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Centrifuga</label>
-            <input type="text" name="centrifuga" class="form-control" placeholder="letra de la centrifuga" value="{{ old('centrifuga') }}">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Entrada</label>
-            <input type="text" name="entrada" class="form-control" placeholder="muestra de entrada"value="{{ old('entrada') }}">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Salida</label>
-            <input type="text" name="salida" class="form-control" placeholder="muestra de salida"value="{{ old('salida') }}">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Consigna</label>
-            <input type="text" name="consigna" class="form-control" placeholder="Consigna">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">VA(r.p.m)</label>
-            <input type="text" name="va" class="form-control" placeholder="suele ser 3000">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">VR(r.p.m)</label>
-            <input type="text" name="vr" class="form-control" placeholder="ej4.12">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Par</label>
-            <input type="text" name="par" class="form-control" placeholder="el par a 50">
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Temp Entrada</label>
-            <input type="text" name="t_entrada" class="form-control" placeholder="se para > 75º">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Temp Salida</label>
-            <input type="text" name="t_salida" class="form-control" placeholder="se para > 75º">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Vibración</label>
-            <input type="text" name="vibracion" class="form-control" placeholder="vibración">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Caudal Entrada</label>
-            <input type="text" name="caudal_ent" class="form-control" placeholder="entrada a centrífuga">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Marca de poli</label>
-            <input type="text" name="marcapoli" class="form-control" placeholder="Marca de polielectrolito">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Caudal de poli</label>
-            <input type="text" name="caudal_poli" class="form-control" placeholder="ej:2700">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Aspecto Escurrido</label>
-            <input type="text" name="aspecto" class="form-control" placeholder="Bien,Mal,Gris,Negro">
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>  
+  
+  {!! Form::open(['route' => 'muestrascamion.store']) !!}
+  <input type="hidden" name="_token" value="{{csrf_token()}}">
 
 
 
-
-
-
-
-
-
-        </td>
-        <td>
-          <button type="submit" class="btn btn-success btn-block">Guardar</button>
-        </td>
-      </tr>
-    </table>
+  <div class="form-group col-md-4">
+    {!!Form::label('centrifuga', 'Centrifuga');!!}
+    {!! Form::select('centrifuga',array('A'=>'Centrifuga A','B'=>'Centrifuga B','C'=>'Centrifuga C'),null,['class' => 'form-control']); !!}
   </div>
+
+
+
+  <div class="form-group col-md-4">
+    {!!Form::label('entrada', 'Entrada');!!} 
+    {!! Form::number('entrada',null, ['step'=>'0.01','placeholder' =>'Sequedad de entrada','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-4 ">
+    {!!Form::label('salida', 'Salida');!!}
+    {!! Form::number('salida',null, ['step'=>'0.01','placeholder' =>'Sequedad de salida','class' => 'form-control'],"");!!}
+  </div>
+
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('consigna', 'Consigna');!!}
+    {!! Form::number('consigna',null, ['step'=>'0.01','placeholder' =>'Consigna','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('va', 'VA(r.p.m)');!!}
+    {!! Form::number('va',null, ['step'=>'0.01','placeholder' =>'Suele ser 3000','class' => 'form-control'],"");!!}
+  </div>
+  
+  <div class="form-group col-md-3 ">
+    {!!Form::label('vr', 'VR(r.p.m)');!!}
+    {!! Form::number('vr',null, ['step'=>'0.01','placeholder' =>'Ejemplo:4.12','class' => 'form-control'],"");!!}
+  </div>
+  
+  <div class="form-group col-md-3 ">
+    {!!Form::label('par', 'Par');!!}
+    {!! Form::number('par',null, ['step'=>'0.01','placeholder' =>'El par a 50','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('t_entrada', 'Temp Entrada');!!}
+    {!! Form::number('t_entrada',null, ['step'=>'0.01','placeholder' =>'Se para > 75º','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('t_salida', 'Temp Salida');!!}
+    {!! Form::number('t_salida',null, ['step'=>'0.01','placeholder' =>'Se para > 75º','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('vibracion', 'Vibración');!!}
+    {!! Form::number('vibracion',null, ['step'=>'0.01','placeholder' =>'Vibración','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('caudal_ent', 'Caudal Entrada');!!}
+    {!! Form::number('caudal_ent',null, ['step'=>'0.01','placeholder' =>'Caudal entrada a centrífuga','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-3 ">
+    {!!Form::label('marcapoli', 'Marca de poli');!!}
+    {!! Form::text('marcapoli',null, ['placeholder' =>'Marca de polielectrolito','class' => 'form-control'],"");!!}
+  </div>
+  
+  <div class="form-group col-md-3 ">
+    {!!Form::label('caudal_poli', 'Caudal de poli');!!}
+    {!! Form::number('caudal_poli',null, ['step'=>'0.01','placeholder' =>'Ej:2700','class' => 'form-control'],"");!!}
+  </div>
+
+  <div class="form-group col-md-4">
+    {!!Form::label('aspecto', 'Aspecto Escurrido');!!}
+    {!! Form::select('aspecto',array('Blanco'=>'Blanco','Gris'=>'Gris','Negro'=>'Negro'),null,['class' => 'form-control']); !!}
+  </div>
+  
+  
+  
+
+  {!! Form::submit('Guardar Datos', ['class' => 'btn btn-success btn-block']) !!} {!! Form::close() !!}
+
+
+
+</div>
