@@ -35,7 +35,6 @@ class ValidaFormMuestrasCamionRequest extends FormRequest
         't_salida'=>'numeric',
         'vibracion'=>'numeric',
         'caudal_ent'=>'numeric',
-        'marcapoli'=>'numeric',
         'caudal_poli'=>'numeric'
         ];
     }

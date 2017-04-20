@@ -14,12 +14,12 @@
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
 
-      <div class="form-group col-md-4">
+    <div class="form-group col-md-4">
 
-        {!!Form::label('linea', 'Linea de secado térmico');!!}
-        {!! Form::select('linea',array('A'=>'Linea A','B'=>'Linea B'),$muestra->linea,['class' => 'form-control']); !!}
-      </div>
-   
+      {!!Form::label('linea', 'Linea de secado térmico');!!}
+      {!! Form::select('linea',array('A'=>'Linea A','B'=>'Linea B'),$muestra->linea,['class' => 'form-control']); !!}
+    </div>
+    
     
     <div class="form-group col-md-4">
       {!!Form::label('sequedadentrada', 'Sequedad entrada');!!}

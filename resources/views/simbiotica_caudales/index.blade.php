@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <div class="container-fluid ">
 	<h1>Caudales simbiótica</h1>
-	<h4> <a href="{{ route('simbiotica.create') }}">Introducir consumos de gas</a></h4>
+	<h4> <a href="{{ route('simbiotica.create') }}">Introducir caudales de simbiótica</a></h4>
 	
 	@include('partials.alerts.success')
 	@include('partials.alerts.deleted')
@@ -15,7 +15,7 @@
 					<td>Fecha</td>
 					<td>Hora</td>
 					<td>Caudal(m³)</td>
-					<td>Totalizado</td>
+					<td>Totalizado</td>		
 					<td>incidencias</td>
 				</tr>
 			</thead>
@@ -28,9 +28,10 @@
 					<td>{{$row->totalizado}}</td>
 					<td><textarea class="textareapers" readonly rows="2">{{$row->incidencias}}</textarea></td>
 					
+					
 					<td >
 						<div class="btn-group">
-							<button href="{{route('simbiotica.edit',$row->id)}}" class="btn btn-info btn-xs">Editar</button>
+							<a href="{{route('simbiotica.edit',$row->id)}}" class="btn btn-info btn-xs">Editar</a>
 
 							<form action="{{route('simbiotica.destroy',$row->id)}}" method="post">
 								<input name="_method" type="hidden" value="DELETE">

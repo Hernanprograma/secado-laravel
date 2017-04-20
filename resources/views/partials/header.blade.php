@@ -1,7 +1,7 @@
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -12,14 +12,46 @@
       <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
     </div>
     <div class="navbar-collapse collapse">
+
+     
+
+       <ul class="nav navbar-nav">
+       
+     
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Insertar datos <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+           <li ><a href="{{ route('lineamuestras.create') }}">Muestras de linea</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('muestrascamion.create') }}">Muestras camión</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('gasconsumo.create') }}">Consumos de gas</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('simbiotica.create') }}">Caudales simbiótica</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+
+
+
+
       <ul class="nav navbar-nav ">
 
-        
-        <li ><a href="{{ url('/lineamuestras') }}">Muestras de linea</a></li>
-        <li ><a href="{{ url('/muestrascamion') }}">Muestras camión</a></li>
-        <li ><a href="{{ url('/gasconsumo') }}">Consumos de gas</a></li>
-        <li ><a href="{{ url('/simbiotica') }}">Caudales simbiótica</a></li>
-        
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+           <li ><a href="{{ route('lineamuestras.index') }}">Muestras de linea</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('muestrascamion.index') }}">Muestras camión</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('gasconsumo.index') }}">Consumos de gas</a></li>
+            <li class="divider"></li>
+            <li ><a href="{{ route('simbiotica.index') }}">Caudales simbiótica</a></li>
+            
+          </ul> 
+        </li>
 
       </ul>
 

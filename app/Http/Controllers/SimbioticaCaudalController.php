@@ -51,6 +51,7 @@ class SimbioticaCaudalController extends Controller
 
         $simbiotica->user_id=$request->user()->id;
         $simbiotica->hora=strtotime($hora);
+
         $simbiotica->caudal=$request->caudal;
         $simbiotica->totalizado=$request->totalizado;
         $simbiotica->incidencias=$request->incidencias;
@@ -79,10 +80,12 @@ class SimbioticaCaudalController extends Controller
      */
     public function edit($id)
     {
-       $simbiotica=SimbioticaCaudales::findOrFail($id);
+     $muestra=SimbioticaCaudales::findOrFail($id);
         //return view('gasconsumo.edit', compact('consumo'));
-       return view('simbiotica.edit', compact('simbiotica'));
-   }
+
+     return view('simbiotica_caudales.edit', compact('muestra'));
+
+ }
 
     /**
      * Update the specified resource in storage.
@@ -95,6 +98,11 @@ class SimbioticaCaudalController extends Controller
     {
         $simbiotica=SimbioticaCaudales::findOrFail($id);
 
+        $auxFecha=$request->fecha;
+        $auxHora=$request->hora;
+        $hora= $auxFecha." ".$auxHora;
+
+      $simbiotica->hora=strtotime($hora);
         $simbiotica->caudal=$request->caudal;
         $simbiotica->totalizado=$request->totalizado;
         $simbiotica->incidencias=$request->incidencias;
@@ -105,6 +113,8 @@ class SimbioticaCaudalController extends Controller
     }
 
 
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -113,10 +123,10 @@ class SimbioticaCaudalController extends Controller
      */
     public function destroy($id)
     {
-     $simbiotica=SimbioticaCaudales::findOrFail($id);
-     $simbiotica->delete();
-     \Session::flash('deleted', 'El registro ha sido eliminado');
-     return redirect()->route('simbiotica.index');
- }
+       $simbiotica=SimbioticaCaudales::findOrFail($id);
+       $simbiotica->delete();
+       \Session::flash('deleted', 'El registro ha sido eliminado');
+       return redirect()->route('simbiotica.index');
+   }
 
 }
