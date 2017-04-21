@@ -15,7 +15,7 @@ class User extends Authenticatable {
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'last_name'
+    'name', 'email', 'password', 'last_name'
     ];
 
     /**
@@ -24,22 +24,31 @@ class User extends Authenticatable {
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+    'password', 'remember_token',
     ];
 
     public function scopeUsuario($query) {
         return $query->where('id', '1')->first();
     }
 
-    // Relación
+    // Relacion
     public function gasconsumo()
-        {
-            return $this->hasMany('proyectoPrueba\Gasconsumo');
-        }
-         // Relación
-        public function simbiotica()
-        {
-            return $this->hasMany('proyectoPrueba\SimbioticaCaudales');
-        }
+    {
+        return $this->hasMany('proyectoPrueba\Gasconsumo');
+    }
+    // Relación
+    public function simbiotica()
+    {
+        return $this->hasMany('proyectoPrueba\SimbioticaCaudales');
+    }
+    // Relación
+    public function lineamuestra()
+    {
+        return $this->hasMany('proyectoPrueba\LineaMuestra');
+    }
+     public function muestracamion()
+    {
+        return $this->hasMany('proyectoPrueba\MuestrasCamion');
+    }
 
 }
