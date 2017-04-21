@@ -4,6 +4,7 @@ use proyectoPrueba\Http\Requests\ValidaFormLineaMuestrasRequest;
 use Illuminate\Http\Request;
 use proyectoPrueba\LineaMuestra;
 
+
 class LineaMuestrasController extends Controller
 {
     public function index(){
@@ -27,8 +28,10 @@ class LineaMuestrasController extends Controller
      */
     public function store(ValidaFormLineaMuestrasRequest $request)
     {
+        
 
         $muestra=new LineaMuestra;
+        $muestra->user_id=$request->user()->id;
         $muestra->linea =$request->linea;
         $muestra->sequedadentrada= $request->sequedadentrada;
         $muestra->sequedadsalida=$request->sequedadsalida;
