@@ -13,6 +13,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <td>Operario</td>
                         <td>Linea</td>
                         <td>Fecha y Hora</td>
                         <td>Entrada</td>
@@ -31,7 +32,7 @@
                 <tbody>
                     @foreach($muestras as $muestra)
                     <tr>
-
+                        <td>{{ $muestra->user->name}}</td>
                         <td>{{ $muestra->linea }}</td>
                         <td>{{ $muestra->created_at }}</td>
                         <td>{{ $muestra->sequedadentrada }}</td>

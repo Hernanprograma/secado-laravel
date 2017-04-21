@@ -45,6 +45,7 @@ class MuestrasCamionController extends Controller
     {
    
         $muestra=new MuestrasCamion;
+        $muestra->user_id=$request->user()->id;
         $muestra->centrifuga =$request->centrifuga;
         $muestra->entrada= $request->entrada;
         $muestra->salida=$request->salida;

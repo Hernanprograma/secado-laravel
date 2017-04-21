@@ -11,7 +11,7 @@
 		@if($data)
 		<table class="table">
 			<thead>
-				<tr>
+				<tr><td>Operario</td>
 					<td>Fecha</td>
 					<td>Hora</td>
 					<td>Centrifuga</td>
@@ -33,7 +33,7 @@
 			</thead>
 			<tbody>
 				@foreach($data as $row)
-				<tr>
+				<tr><td>{{$row->user->name}}</td>
 					<td>{{$row->created_at->format('d/m/Y')}}</td>
 					<td>{{$row->created_at->format('H:i:s')}}</td>
 					<td>{{$row->centrifuga}}</td>
