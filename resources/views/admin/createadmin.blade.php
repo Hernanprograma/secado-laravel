@@ -25,6 +25,11 @@
         <input type="text" name="name" class="form-control" value="{{ old('name') }}" />
         <div class="text-danger">{{$errors->first('name')}}</div>
     </div>
+    <div class="form-group">
+        <label for="name">Apellidos:</label>
+        <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}" />
+        <div class="text-danger">{{$errors->first('last_name')}}</div>
+    </div>
 
     <div class="form-group">
         <label for="email">Email:</label>

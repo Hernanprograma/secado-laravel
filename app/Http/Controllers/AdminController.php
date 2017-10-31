@@ -10,6 +10,23 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+  public function __construct(){
+         $this->middleware('auth', ['except' => 'createAdmin']);
+     }
+     private function isAdmin(){
+            if (Auth::user()->user == 1) return true;
+            else return false;
+        }
+
+
+  public function admin(){
+               if ($this->isAdmin()){
+                   return View('admin.admin');
+               } else{
+                   return redirect()->back();
+               }
+           }
+
   public function createAdmin(Request $request){
 
   if ($request->isMethod('post'))
@@ -27,6 +44,8 @@ class AdminController extends Controller
     'name.min' => 'El mínimo de caracteres permitidos son 3',
     'name.max' => 'El máximo de caracteres permitidos son 16',
     'name.regex' => 'Sólo se aceptan letras',
+    'last_name.required' => 'El campo es requerido',
+    'last-name.required' => 'Sólo se aceptan letras',
     'email.required' => 'El campo es requerido',
     'email.email' => 'El formato de email es incorrecto',
     'email.max' => 'El máximo de caracteres permitidos son 255',
@@ -44,14 +63,15 @@ class AdminController extends Controller
     return redirect()->back()->withErrors($validator);
    }
    else{ // De los contrario guardar al usuario
+
+
     $user = new User;
     $user->name = $request->name;
+    $user->last_name=$request->last_name;
     $user->email = $request->email;
     $user->password = bcrypt($request->password);
-    $user->remember_token = str_random(100);
-    $user->confirm_token = str_random(100);
-    //Activar al administrador sin necesidad de enviar correo electrónico
-    $user->active = 1;
+
+
     //El valor 1 en la columna determina si el usuario es administrador o no
     $user->user = 1;
 

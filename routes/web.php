@@ -28,6 +28,10 @@ use proyectoPrueba\User;
 
   Route::match(['get', 'post'], 'admin/createadmin', 'AdminController@createAdmin');
 
+  Route::get('admin', 'AdminController@admin');
+
+  Route::get('register', 'RegisterController@showRegistrationForm');
+
 
   Route::post('/simbiotica/export', 'SimbioticaCaudalController@exportsimbiotica');
   Route::post('/muestrascamion/export', 'MuestrasCamionController@exportsimbiotica');
