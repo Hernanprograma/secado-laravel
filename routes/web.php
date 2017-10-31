@@ -26,6 +26,9 @@ use proyectoPrueba\User;
     dd($muestras);
   });
 
+  Route::match(['get', 'post'], 'admin/createadmin', 'AdminController@createAdmin');
+
+
   Route::post('/simbiotica/export', 'SimbioticaCaudalController@exportsimbiotica');
   Route::post('/muestrascamion/export', 'MuestrasCamionController@exportsimbiotica');
 
