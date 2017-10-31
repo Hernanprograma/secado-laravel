@@ -37,12 +37,6 @@ use RegistersUsers;
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
-   {
-   return redirect('/');
-   }
-
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -65,13 +59,12 @@ use RegistersUsers;
      * @return User
      */
     protected function create(array $data) {
-       return redirect('/');
-        /*return User::create([
+        return User::create([
                     'name' => $data['name'],
                     'last_name' => $data['last_name'],
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
-        ]);*/
+        ]);
     }
 
 }

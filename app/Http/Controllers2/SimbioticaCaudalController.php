@@ -1,11 +1,14 @@
 <?php
 
-namespace proyectoPrueba\Http\Controllers;
-use proyectoPrueba\Http\Requests\ValidaSimbioticaCaudalesRequest;
+namespace secadotermico\Http\Controllers;
+use secadotermico\Http\Requests\ValidaSimbioticaCaudalesRequest;
 use Illuminate\Http\Request;
-use proyectoPrueba\SimbioticaCaudales;
-use proyectoPrueba\User;
+use secadotermico\SimbioticaCaudales;
+use secadotermico\User;
 use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Log;
+
 
 class SimbioticaCaudalController extends Controller
 {
@@ -17,15 +20,10 @@ class SimbioticaCaudalController extends Controller
     public function index()
     { 
         $data= SimbioticaCaudales::all()->reverse();
-        //$data=SimbioticaCaudales::latest()->Paginate(10);
-
-        //$data=SimbioticaCaudales::latest()->Paginate(10);
-
         $mes=Carbon::now()->month;
         $ano=Carbon::now()->year;
 
         return view('simbiotica_caudales.index',compact('data','mes','ano'));
-        
     }
     /**
      * Display a listing of the resource.
@@ -35,6 +33,8 @@ class SimbioticaCaudalController extends Controller
     public function search(Request $request)
     { 
 
+
+        //var_dump($input);
       $mes=$request->input('mes');
       $ano=$request->input('ano');
 
@@ -42,6 +42,11 @@ class SimbioticaCaudalController extends Controller
       $data= SimbioticaCaudales::whereYear('hora', '=',$ano)
       ->whereMonth('hora', '=', $mes)
       ->get()->reverse();
+
+
+
+
+
 
       return view('simbiotica_caudales.index',compact('data','mes','ano'));
 

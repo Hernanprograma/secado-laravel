@@ -17,20 +17,28 @@ use proyectoPrueba\User;
 
 
 
-Route::get('/', function () {
+  Route::get('/', function () {
     return view('welcome');
-});
+  });
 
-Route::get('pruebasLineaMuestra', function () {
+  Route::get('pruebasLineaMuestra', function () {
     $muestras = LineaMuestra::LineaB()->get();
     dd($muestras);
-});
+  });
 
-Route::resource('lineamuestras', 'LineaMuestrasController');
-Route::resource('muestrascamion', 'MuestrasCamionController');
-Route::resource('gasconsumo', 'GasConsumoController');
-Route::resource('simbiotica', 'SimbioticaCaudalController');
+  Route::post('/simbiotica/export', 'SimbioticaCaudalController@exportsimbiotica');
+  Route::post('/muestrascamion/export', 'MuestrasCamionController@exportsimbiotica');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+  Route::post('/simbiotica/search', 'SimbioticaCaudalController@search');
+  Route::post('/muestrascamion/search', 'MuestrasCamionController@search');
+
+
+  Route::resource('lineamuestras', 'LineaMuestrasController');
+  Route::resource('muestrascamion', 'MuestrasCamionController');
+  Route::resource('gasconsumo', 'GasConsumoController');
+  Route::resource('simbiotica', 'SimbioticaCaudalController');
+
+  Auth::routes();
+
+  Route::get('/home', 'HomeController@index');

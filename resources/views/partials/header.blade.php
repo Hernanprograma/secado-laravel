@@ -13,11 +13,11 @@
     </div>
     <div class="navbar-collapse collapse">
 
-     
 
+@if (!Auth::guest())
        <ul class="nav navbar-nav">
-       
-     
+
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Insertar datos <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -28,7 +28,7 @@
             <li ><a href="{{ route('gasconsumo.create') }}">Consumos de gas</a></li>
             <li class="divider"></li>
             <li ><a href="{{ route('simbiotica.create') }}">Caudales simbiótica</a></li>
-            
+
           </ul>
         </li>
       </ul>
@@ -49,11 +49,12 @@
             <li ><a href="{{ route('gasconsumo.index') }}">Consumos de gas</a></li>
             <li class="divider"></li>
             <li ><a href="{{ route('simbiotica.index') }}">Caudales simbiótica</a></li>
-            
-          </ul> 
+
+          </ul>
         </li>
 
       </ul>
+      @endif
 
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right">

@@ -21,6 +21,18 @@
     {!! Form::select('centrifuga',array('A'=>'Centrifuga A','B'=>'Centrifuga B','C'=>'Centrifuga C'),null,['class' => 'form-control']); !!}
   </div>
 
+  <div class="form-group col-md-3">
+    {!!Form::label('fecha', 'Fecha');!!} 
+    {!! Form::date('fecha',null, ['placeholder' =>'Selecciona la fecha','class' => 'form-control'],"");!!}
+  </div>
+
+
+  <div class=" form-group col-md-2 ">
+    {!!Form::label('hora', 'Hora');!!} 
+    {!! Form::time('hora',null , ['placeholder' =>'selecciona la hora','class' => 'form-control '],"");!!}
+   
+  </div>
+
 
 
   <div class="form-group col-md-4">
