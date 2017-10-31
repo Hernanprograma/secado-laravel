@@ -6,6 +6,7 @@ namespace proyectoPrueba\Http\Controllers;
 use proyectoPrueba\User;
 use Validator;
 use Auth;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
