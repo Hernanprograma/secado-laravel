@@ -3,6 +3,16 @@
 	<h1>Lista de Muestras Camiones</h1>
 	<h4> <a href="{{ route('muestrascamion.create') }}">Añadir una muestra</a></h4>
 	<hr>
+
+	{!! Form::open(['url' => '/muestrascamion/export', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
+
+	{!! Form::hidden('data', $data) !!}
+	{!! Form::hidden('mes', $mes) !!}
+	{!! Form::hidden('ano', $ano) !!}
+
+
+	{!! Form::submit('Informe en Excel', ['class' => 'btn btn-danger ']) !!}
+	{!! Form::close() !!}
 	@include('partials.alerts.success')
 	@include('partials.alerts.deleted')
 
@@ -11,6 +21,19 @@
 		@if($data)
 		<table class="table">
 			<thead>
+
+			{!! Form::open(['url' => '/muestrascamion/search', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
+
+
+
+				{!!Form::selectRange('mes',1,12,$mes) !!}
+				{!! Form::selectYear('ano', 2017, 2025,$ano) !!}
+
+				<a href="{{ route('muestrascamion.index') }}" class="btn btn-primary">Todo</a>
+				{!! Form::submit('Buscar', ['class' => 'btn btn-primary']) !!}
+				{!! Form::close() !!}
+
+
 				<tr><td>Operario</td>
 					<td>Fecha</td>
 					<td>Hora</td>

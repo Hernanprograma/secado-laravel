@@ -15,9 +15,22 @@
 
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/micss.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/clockpicker.css">
+    <link rel="stylesheet" type="text/css" href="/css/standalone.css">
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <script>"https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"</script>
-      <script>"https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"</script>
+
+    <!--Datapicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+    <!--Timepicker-->
+
+
+    <link href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+
 
     <!-- Scripts -->
 
@@ -25,17 +38,18 @@
     <script>
         window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token(),]);?>
     </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#grid').DataTable();
-        });
-    </script>
+
+
+
 
 </head>
 
+
+
 <body>
     <div id="app">
-        @include('partials.header') @yield('content') @include('partials.footer')
+    
+       @yield('content')
     </div>
 
 
@@ -45,3 +59,39 @@
 </body>
 
 </html>
+
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<script>
+//esta funcion la usamos para para seleccionar la fecha de diferente manera segun el navegador que usemos;en chrome se usara el selector nativo mientras que otros navegadores usaran jquery.
+var isDateInputSupported = function(){
+    var elem = document.createElement('input');
+    elem.setAttribute('type','date');
+    elem.value = 'foo';
+    return (elem.type == 'date' && elem.value != 'foo');
+}
+
+if (!isDateInputSupported())  // or.. !Modernizr.inputtypes.date
+  $('input[type="date"]').datepicker();
+</script>
+
+<script type="text/javascript" src="/js/clockpicker.js"></script>
+<script type="text/javascript">
+//esta funcion la usamos para para seleccionar la hora de diferente manera segun el navegador que usemos;en chrome se usara el selector nativo mientras que otros navegadores usaran jquery.
+    var isTimeInputSupported = function(){
+        var elem = document.createElement('input');
+        elem.setAttribute('type','time');
+        elem.value = 'foo';
+        return (elem.type == 'time' && elem.value != 'foo');
+    }
+
+    if (!isTimeInputSupported())  // or.. !Modernizr.inputtypes.date
+        $('input[type="time"]').clockpicker({ donetext: 'OK'});
+</script>
+
+
+
+
+
+
+</script>
