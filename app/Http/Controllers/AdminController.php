@@ -10,23 +10,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-  public function __construct(){
-         $this->middleware('auth', ['except' => 'createAdmin']);
-     }
-     private function isAdmin(){
-            if (Auth::user()->user == 1) return true;
-            else return false;
-        }
-
-
-  public function admin(){
-               if ($this->isAdmin()){
-                   return View('admin.admin');
-               } else{
-                   return redirect()->back();
-               }
-           }
-
+  
   public function createAdmin(Request $request){
 
   if ($request->isMethod('post'))

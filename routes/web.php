@@ -21,14 +21,11 @@ use proyectoPrueba\User;
     return view('welcome');
   });
 
-  Route::get('pruebasLineaMuestra', function () {
-    $muestras = LineaMuestra::LineaB()->get();
-    dd($muestras);
-  });
-
+Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'admin'], function () {
   Route::match(['get', 'post'], 'admin/createadmin', 'AdminController@createAdmin');
-
   Route::get('admin', 'AdminController@admin');
+  });
 
   Route::get('register', 'RegisterController@showRegistrationForm');
 
@@ -45,7 +42,7 @@ use proyectoPrueba\User;
   Route::resource('muestrascamion', 'MuestrasCamionController');
   Route::resource('gasconsumo', 'GasConsumoController');
   Route::resource('simbiotica', 'SimbioticaCaudalController');
-
+});
   Auth::routes();
 
   Route::get('/home', 'HomeController@index');

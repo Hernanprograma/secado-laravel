@@ -3,6 +3,7 @@
 namespace proyectoPrueba\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use proyectoPrueba\Http\Middleware\IsAdmin;
 
 class Kernel extends HttpKernel
 {
@@ -52,5 +53,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \proyectoPrueba\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'admin' => \proyectoPrueba\Http\Middleware\IsAdmin::class,
     ];
 }
