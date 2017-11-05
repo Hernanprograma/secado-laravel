@@ -25,7 +25,7 @@ class RegisterController extends Controller {
 
     public function showRegistrationForm()
   {
-    return View('admin/createuser');
+    return View('admin.createuser');
   }
 
 
@@ -90,6 +90,7 @@ class RegisterController extends Controller {
      $user->last_name=$request->last_name;
      $user->email = $request->email;
      $user->password = bcrypt($request->password);
+     $user->user=$request->rol;
 
 
      //El valor 1 en la columna determina si el usuario es administrador o no

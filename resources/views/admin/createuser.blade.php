@@ -47,6 +47,12 @@
         <input type="password" class="form-control" name="password_confirmation">
     </div>
 
+
+  <div class="form-group">
+  {!!Form::label('rol', 'Rol');!!}
+  {!! Form::select('rol',array('1'=>'Usuario','2'=>'Administrador','3'=>'Superadministrador'),null,['class' => 'form-control']); !!}
+</div>
+
     <div>
         <button type="submit" class="btn btn-primary">Crear usuario</button>
     </div>

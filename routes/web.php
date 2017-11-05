@@ -24,10 +24,13 @@ use proyectoPrueba\User;
 Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'admin'], function () {
   Route::match(['get', 'post'], 'admin/createadmin', 'AdminController@createAdmin');
+Route::get('admin/createuser', 'RegisterController@showRegistrationForm');
+Route::post('admin/create', 'RegisterController@create');
   Route::get('admin', 'AdminController@admin');
+
   });
 
-  Route::get('register', 'RegisterController@showRegistrationForm');
+
 
 
   Route::post('/simbiotica/export', 'SimbioticaCaudalController@exportsimbiotica');
