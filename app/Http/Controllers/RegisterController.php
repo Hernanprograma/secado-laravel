@@ -25,7 +25,7 @@ class RegisterController extends Controller {
 
     public function showRegistrationForm()
   {
-    return View('admin.createuser');
+    return View('admin.user.createuser');
   }
 
 
